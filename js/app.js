@@ -1,44 +1,49 @@
-const container = document.querySelector('.container');
+const coso = [];
 
-const fragment = document.createDocumentFragment();
-
-const titanContent = [];
-
-const addDom = () => {
-  titanContent.forEach((element) => {
-    const nameTitan = document.createElement('p');
-
-    nameTitan.textContent = element.nombre;
-
-    fragment.appendChild(nameTitan);
-  });
-
-  container.appendChild(fragment);
+const pintElements = () => {
+  console.log(coso);
 };
 
-const getDataGames = async () => {
+const fetchApi = async () => {
   try {
-    const response = await fetch('https://api.attackontitanapi.com/');
-    const result = await response.json();
+    const response = await fetch('https://rickandmortyapi.com/api'); //Fetch a la Api principal
+    const result = await response.json(); //Api principal convertida en json
 
-    const resTitan = await fetch(result.titans);
-    const resultTitan = await resTitan.json();
+    //Parametro de la funcion asincrona es la Api 'characters' de result
+    const fetchCharacters = async (url) => {
+      try {
+        const response = await fetch(url); // Hago un fetch a la Api 'characters'
+        const result = await response.json(); // La convierto en json
 
-    const data = await resultTitan.results.map((element) => {
-      return {
-        nombre: element.name,
-        altura: element.height,
-        lealtad: element.allegiance,
-        image: element.img,
-      };
-    });
+        //Hago un mapeo del array de personajes
+        const arrayCharacters = await result.results.map((element) => {
+          // retorno un objeto con los elemento que quiero
+          return {
+            nombre: element.name,
+            estado: element.status,
+            especie: element.species,
+            genero: element.gender,
+            tipo: element.type,
+            imagen: element.image,
+          };
+        });
 
-    titanContent.push(...data);
+        // Si hay una api dentro de la api characters entonces cambio el parametro por esa nueva api, entonces se realizará otra vez el fetch con esa nueva api
+        if (result.info.next) {
+          fetchCharacters(result.info.next);
+        }
 
-    addDom();
+        coso.push(...arrayCharacters); // Hago un push al array vacio de todos los elementos de arrayCharacters
+        pintElements();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCharacters(result.characters); //Primer parametro que se ve al inicio
   } catch (error) {
     console.log(error);
   }
 };
 
-getDataGames();
+fetchApi(); // Llamada a la funcion
