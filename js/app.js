@@ -1,6 +1,6 @@
 const coso = [];
 
-const pintElements = () => {
+const domElements = () => {
   console.log(coso);
 };
 
@@ -34,7 +34,7 @@ const fetchApi = async () => {
         }
 
         coso.push(...arrayCharacters); // Hago un push al array vacio de todos los elementos de arrayCharacters
-        pintElements();
+        domElements();
       } catch (error) {
         console.log(error);
       }
