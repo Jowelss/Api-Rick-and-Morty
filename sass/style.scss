@@ -1,0 +1,47 @@
+// :root {
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 0;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    .nav-container__logo {
+      display: flex;
+      align-items: center;
+      width: 160px;
+
+      .nav-logo {
+        width: 100%;
+      }
+    }
+
+    .nav-list__container {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 100px;
+    }
+  }
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  // .content-grid {
+  //   .element {
+  //   }
+  // }
+}

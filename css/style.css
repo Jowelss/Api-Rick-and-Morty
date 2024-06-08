@@ -1,3 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.header .nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.header .nav .nav-container__logo {
+  display: flex;
+  align-items: center;
+  width: 160px;
+}
+.header .nav .nav-container__logo .nav-logo {
+  width: 100%;
+}
+.header .nav .nav-list__container {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 100px;
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
 /*# sourceMappingURL=style.css.map */
