@@ -1,8 +1,9 @@
+const contentGrid = document.querySelector('.content-grid');
+const element = document.querySelector('.element');
+
 const coso = [];
 
-const domElements = () => {
-  console.log(coso);
-};
+const domElements = () => {};
 
 const fetchApi = async () => {
   try {
