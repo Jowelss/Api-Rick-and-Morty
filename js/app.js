@@ -1,9 +1,43 @@
-const contentGrid = document.querySelector('.content-grid');
-const element = document.querySelector('.element');
+const template = document.getElementById('template');
 
-const coso = [];
+const element = document.querySelector('.content-grid');
 
-const domElements = () => {};
+const fragment = document.createDocumentFragment();
+
+const personajes = [];
+
+const domElements = () => {
+  element.textContent = ''; //Vaciar element para lo proxima llamada
+
+  personajes.forEach((element) => {
+    const cloneTemplate = template.content.cloneNode(true);
+
+    cloneTemplate.querySelector('.element-image').src = element.imagen;
+
+    cloneTemplate.querySelector(
+      '.element-nombre'
+    ).textContent = `Nombre: ${element.nombre}`;
+
+    cloneTemplate.querySelector(
+      '.element-genero'
+    ).textContent = `Género: ${element.genero}`;
+
+    cloneTemplate.querySelector(
+      '.element-especie'
+    ).textContent = `Especie: ${element.especie}`;
+
+    cloneTemplate.querySelector(
+      '.element-estado'
+    ).textContent = `Estado: ${element.estado}`;
+
+    cloneTemplate.querySelector(
+      '.element-tipo'
+    ).textContent = `Tipo: ${element.tipo}`;
+
+    fragment.appendChild(cloneTemplate);
+  });
+  element.appendChild(fragment);
+};
 
 const fetchApi = async () => {
   try {
@@ -20,21 +54,22 @@ const fetchApi = async () => {
         const arrayCharacters = await result.results.map((element) => {
           // retorno un objeto con los elemento que quiero
           return {
+            imagen: element.image,
             nombre: element.name,
             estado: element.status,
             especie: element.species,
             genero: element.gender,
             tipo: element.type,
-            imagen: element.image,
           };
         });
+
+        personajes.push(...arrayCharacters); // Hago un push al array vacio de todos los elementos de arrayCharacters
 
         // Si hay una api dentro de la api characters entonces cambio el parametro por esa nueva api, entonces se realizará otra vez el fetch con esa nueva api
         if (result.info.next) {
           fetchCharacters(result.info.next);
         }
 
-        coso.push(...arrayCharacters); // Hago un push al array vacio de todos los elementos de arrayCharacters
         domElements();
       } catch (error) {
         console.log(error);
