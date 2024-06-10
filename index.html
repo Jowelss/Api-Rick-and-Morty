@@ -26,21 +26,22 @@
       </nav>
     </header>
     <main class="main">
-      <article class="content-grid">
-        <div class="element">
-          <div class="element-image__container">
-            <img src="" alt="" class="element-image" />
-          </div>
-          <div class="element-info__container">
-            <p class="element-nombre">Nombre</p>
-            <p class="element-genero">Genero</p>
-            <p class="element-especie">Especie</p>
-            <p class="element-estado">Estado</p>
-            <p class="element-tipo">Tipo</p>
-          </div>
-        </div>
-      </article>
+      <article class="content-grid"></article>
     </main>
+    <template id="template">
+      <section class="element">
+        <div class="element-image__container">
+          <img src="" alt="" class="element-image" />
+        </div>
+        <ul class="element-info__container">
+          <li class="element-nombre"></li>
+          <li class="element-genero"></li>
+          <li class="element-especie"></li>
+          <li class="element-estado"></li>
+          <li class="element-tipo"></li>
+        </ul>
+      </section>
+    </template>
   </body>
   <script src="/js/app.js"></script>
 </html>
