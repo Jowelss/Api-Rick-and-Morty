@@ -9,6 +9,7 @@
 
 .header {
   max-width: 1400px;
+  height: 100px;
   margin: 0 auto;
   padding: 10px 0;
 
@@ -39,9 +40,32 @@
 .main {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 10px;
 
-  // .content-grid {
-  //   .element {
-  //   }
-  // }
+  .content-grid {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 400px repeat(auto-fill, 400px);
+    gap: 20px;
+
+    .element {
+      display: flex;
+
+      .element-image__container {
+        width: 180px;
+        height: 180px;
+
+        .element-image {
+          width: 100%;
+        }
+      }
+
+      .element-info__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        list-style: none;
+      }
+    }
+  }
 }

@@ -6,6 +6,7 @@
 
 .header {
   max-width: 1400px;
+  height: 100px;
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -32,6 +33,29 @@
 .main {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 10px;
+}
+.main .content-grid {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 400px repeat(auto-fill, 400px);
+  gap: 20px;
+}
+.main .content-grid .element {
+  display: flex;
+}
+.main .content-grid .element .element-image__container {
+  width: 180px;
+  height: 180px;
+}
+.main .content-grid .element .element-image__container .element-image {
+  width: 100%;
+}
+.main .content-grid .element .element-info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
 }
 
 /*# sourceMappingURL=style.css.map */
