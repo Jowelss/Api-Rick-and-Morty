@@ -26,6 +26,20 @@
       </nav>
     </header>
     <main class="main">
+      <section class="title-container">
+        <h1 class="title">CHARACTERS</h1>
+      </section>
+
+      <form class="search-container">
+        <label for="search-engine" class="search-label">Search</label>
+        <input
+          type="search"
+          id="search-engine"
+          placeholder="Character..."
+          class="search-input"
+        />
+        <button type="submit">Buscar</button>
+      </form>
       <article class="content-grid"></article>
     </main>
     <template id="template">
@@ -36,8 +50,8 @@
         <ul class="element-info__container">
           <li class="element-nombre"></li>
           <li class="element-genero"></li>
-          <li class="element-especie"></li>
           <li class="element-estado"></li>
+          <li class="element-especie"></li>
           <li class="element-tipo"></li>
         </ul>
       </section>
