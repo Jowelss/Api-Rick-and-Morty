@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 :root {
-  --white: #fff;
+  --white: #ffffff85;
 }
 
 * {
@@ -12,18 +12,17 @@
 }
 
 body {
-  background-color: #000;
+  background-color: #000000;
 }
 
 .header {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 10px 0;
 }
 .header .nav {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
   height: 100px;
 }
 .header .nav .nav-container__logo {
@@ -44,39 +43,57 @@ body {
 .main {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 10px;
+}
+.main .title-container {
+  margin: 20px 0 50px;
+}
+.main .title-container .title {
+  text-align: center;
+  font-size: 4rem;
+}
+.main .search-container {
+  max-width: 1200px;
+  margin: 0 auto 20px;
 }
 .main .content-grid {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, 420px);
-  grid-auto-rows: 180px;
+  grid-template-columns: repeat(auto-fill, 600px);
+  grid-auto-rows: 220px;
   gap: 20px;
 }
 .main .content-grid .element {
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   border: 1px solid var(--white);
   border-radius: 10px;
-  padding: 0 12px;
-  height: 100%;
+  overflow: hidden;
 }
 .main .content-grid .element .element-image__container {
-  max-width: 160px;
-  height: 160px;
-  border-radius: 10px;
+  width: 240px;
+  height: 100%;
   overflow: hidden;
 }
 .main .content-grid .element .element-image__container .element-image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .main .content-grid .element .element-info__container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-weight: bold;
   list-style: none;
+}
+.main .content-grid .element .element-info__container .element-nombre {
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */
