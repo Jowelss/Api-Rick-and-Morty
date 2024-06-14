@@ -4,6 +4,10 @@ const element = document.querySelector('.content-grid');
 
 const fragment = document.createDocumentFragment();
 
+const searchInput = document.getElementById('search-engine');
+
+const searchButton = document.querySelector('.button');
+
 const personajes = [];
 
 const domElements = () => {
@@ -34,6 +38,7 @@ const domElements = () => {
 
     fragment.appendChild(cloneTemplate);
   });
+
   element.appendChild(fragment);
 };
 
