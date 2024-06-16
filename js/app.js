@@ -1,6 +1,6 @@
 const template = document.getElementById('template');
 
-const element = document.querySelector('.content-grid');
+const content = document.querySelector('.content-grid');
 
 const fragment = document.createDocumentFragment();
 
@@ -11,9 +11,9 @@ const searchButton = document.querySelector('.button');
 const personajes = [];
 
 const domElements = () => {
-  element.textContent = ''; //Vaciar element para lo proxima llamada
+  content.textContent = ''; //Vaciar element para lo proxima llamada
 
-  personajes.slice(0, 10).forEach((element) => {
+  personajes.slice(0, 5).forEach((element) => {
     const cloneTemplate = template.content.cloneNode(true);
 
     cloneTemplate.querySelector('.element-image').src = element.imagen;
@@ -39,7 +39,7 @@ const domElements = () => {
     fragment.appendChild(cloneTemplate);
   });
 
-  element.appendChild(fragment);
+  content.appendChild(fragment);
 };
 
 const fetchApi = async () => {
