@@ -10,8 +10,23 @@ const searchButton = document.querySelector('.button');
 
 const personajes = [];
 
+const getNameCharacter = () => {
+  const elementName = document.querySelectorAll('.element-nombre');
+
+  searchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    for (const item of elementName) {
+      if (item.textContent === searchInput.value) {
+        console.log(item.textContent);
+      } else {
+        console.log('error');
+      }
+    }
+  });
+};
+
 const domElements = () => {
-  content.textContent = ''; //Vaciar element para lo proxima llamada
+  content.textContent = '';
 
   personajes.slice(0, 5).forEach((element) => {
     const cloneTemplate = template.content.cloneNode(true);
@@ -48,36 +63,6 @@ const fetchApi = async () => {
     const result = await response.json(); //Api principal convertida en json
 
     //Parametro de la funcion asincrona es la Api 'characters' de result
-    const fetchCharacters = async (url) => {
-      try {
-        const response = await fetch(url); // Hago un fetch a la Api 'characters'
-        const result = await response.json(); // La convierto en json
-
-        //Hago un mapeo del array de personajes
-        const arrayCharacters = await result.results.map((element) => {
-          // retorno un objeto con los elemento que quiero
-          return {
-            imagen: element.image,
-            nombre: element.name,
-            estado: element.status,
-            especie: element.species,
-            genero: element.gender,
-            tipo: element.type,
-          };
-        });
-
-        personajes.push(...arrayCharacters); // Hago un push al array vacio de todos los elementos de arrayCharacters
-
-        // Si hay una api dentro de la api characters entonces cambio el parametro por esa nueva api, entonces se realizará otra vez el fetch con esa nueva api
-        if (result.info.next) {
-          fetchCharacters(result.info.next);
-        }
-
-        domElements();
-      } catch (error) {
-        console.log(error);
-      }
-    };
 
     fetchCharacters(result.characters); //Primer parametro que se ve al inicio
   } catch (error) {
@@ -85,4 +70,37 @@ const fetchApi = async () => {
   }
 };
 
-fetchApi(); // Llamada a la funcion
+fetchApi();
+
+const fetchCharacters = async (url) => {
+  try {
+    const response = await fetch(url); // Hago un fetch a la Api 'characters'
+    const result = await response.json(); // La convierto en json
+
+    //Hago un mapeo del array de personajes
+    const arrayCharacters = await result.results.map((element) => {
+      // retorno un objeto con los elemento que quiero
+      return {
+        imagen: element.image,
+        nombre: element.name,
+        estado: element.status,
+        especie: element.species,
+        genero: element.gender,
+        tipo: element.type,
+      };
+    });
+
+    personajes.push(...arrayCharacters);
+
+    // Si hay una api dentro de la api characters entonces cambio el parametro por esa nueva api, entonces se realizará otra vez el fetch con esa nueva api
+    if (result.info.next) {
+      fetchCharacters(result.info.next);
+    } else {
+      //Si ya no hay mas apis se ejecuta estas funciones
+      domElements();
+      getNameCharacter();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
