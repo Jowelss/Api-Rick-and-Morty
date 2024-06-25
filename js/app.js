@@ -4,26 +4,13 @@ const content = document.querySelector('.content-grid');
 
 const fragment = document.createDocumentFragment();
 
-const searchInput = document.getElementById('search-engine');
+let searchInput = document.getElementById('search-engine');
 
 const searchButton = document.querySelector('.button');
 
 const personajes = [];
 
-const getNameCharacter = () => {
-  const elementName = document.querySelectorAll('.element-nombre');
-
-  searchButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    for (const item of elementName) {
-      if (item.textContent === searchInput.value) {
-        console.log(item.textContent);
-      } else {
-        console.log('error');
-      }
-    }
-  });
-};
+const getNameCharacter = () => {};
 
 const domElements = () => {
   content.textContent = '';
@@ -63,7 +50,6 @@ const fetchApi = async () => {
     const result = await response.json(); //Api principal convertida en json
 
     //Parametro de la funcion asincrona es la Api 'characters' de result
-
     fetchCharacters(result.characters); //Primer parametro que se ve al inicio
   } catch (error) {
     console.log(error);
