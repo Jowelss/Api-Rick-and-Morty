@@ -9,28 +9,28 @@ const personajes = [];
 const domElements = () => {
   content.textContent = '';
 
-  personajes.forEach((element) => {
+  personajes.forEach((info) => {
     const cloneTemplate = template.content.cloneNode(true);
 
-    cloneTemplate.querySelector('.data-image').src = element.imagen;
+    cloneTemplate.querySelector('.data-image').src = info.imagen;
 
-    cloneTemplate.querySelector('.data-nombre').textContent = element.nombre;
+    cloneTemplate.querySelector('.data-nombre').textContent = info.nombre;
 
     cloneTemplate.querySelector(
       '.data-genero'
-    ).textContent = `Gender :  ${element.genero}`;
+    ).textContent = `Gender :  ${info.genero}`;
 
     cloneTemplate.querySelector(
       '.data-especie'
-    ).textContent = `Specie :  ${element.especie}`;
+    ).textContent = `Specie :  ${info.especie}`;
 
     cloneTemplate.querySelector(
       '.data-estado'
-    ).textContent = `State :  ${element.estado}`;
+    ).textContent = `State : ${info.estado}`;
 
     cloneTemplate.querySelector(
       '.data-tipo'
-    ).textContent = `Type :  ${element.tipo}`;
+    ).textContent = `Type :  ${info.tipo}`;
 
     fragment.appendChild(cloneTemplate);
   });
