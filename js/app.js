@@ -1,10 +1,8 @@
 const template = document.getElementById('template');
 
-const content = document.querySelector('.content-grid');
+const content = document.querySelector('.data-container');
 
 const fragment = document.createDocumentFragment();
-
-const searchButton = document.querySelector('.button');
 
 const personajes = [];
 
@@ -14,24 +12,24 @@ const domElements = () => {
   personajes.forEach((element) => {
     const cloneTemplate = template.content.cloneNode(true);
 
-    cloneTemplate.querySelector('.element-image').src = element.imagen;
+    cloneTemplate.querySelector('.data-image').src = element.imagen;
 
-    cloneTemplate.querySelector('.element-nombre').textContent = element.nombre;
+    cloneTemplate.querySelector('.data-nombre').textContent = element.nombre;
 
     cloneTemplate.querySelector(
-      '.element-genero'
+      '.data-genero'
     ).textContent = `Gender :  ${element.genero}`;
 
     cloneTemplate.querySelector(
-      '.element-especie'
+      '.data-especie'
     ).textContent = `Specie :  ${element.especie}`;
 
     cloneTemplate.querySelector(
-      '.element-estado'
+      '.data-estado'
     ).textContent = `State :  ${element.estado}`;
 
     cloneTemplate.querySelector(
-      '.element-tipo'
+      '.data-tipo'
     ).textContent = `Type :  ${element.tipo}`;
 
     fragment.appendChild(cloneTemplate);
@@ -60,15 +58,15 @@ const fetchCharacters = async (url) => {
     const result = await response.json(); // La convierto en json
 
     //Hago un mapeo del array de personajes
-    const arrayCharacters = await result.results.map((element) => {
+    const arrayCharacters = await result.results.map((item) => {
       // retorno un objeto con los elemento que quiero
       return {
-        imagen: element.image,
-        nombre: element.name,
-        estado: element.status,
-        especie: element.species,
-        genero: element.gender,
-        tipo: element.type,
+        imagen: item.image,
+        nombre: item.name,
+        estado: item.status,
+        especie: item.species,
+        genero: item.gender,
+        tipo: item.type,
       };
     });
 
