@@ -1,15 +1,15 @@
 const template = document.getElementById('template');
 
-const content = document.querySelector('.data-container');
+const dataContainer = document.querySelector('.data-container');
 
 const fragment = document.createDocumentFragment();
 
-const personajes = [];
+const characters = [];
 
 const domElements = () => {
-  content.textContent = '';
+  dataContainer.textContent = '';
 
-  personajes.forEach((info) => {
+  characters.forEach((info) => {
     const cloneTemplate = template.content.cloneNode(true);
 
     cloneTemplate.querySelector('.data-image').src = info.imagen;
@@ -35,7 +35,7 @@ const domElements = () => {
     fragment.appendChild(cloneTemplate);
   });
 
-  content.appendChild(fragment);
+  dataContainer.appendChild(fragment);
 };
 
 const fetchApi = async () => {
@@ -70,7 +70,7 @@ const fetchCharacters = async (url) => {
       };
     });
 
-    personajes.push(...arrayCharacters);
+    characters.push(...arrayCharacters);
 
     // Si hay una api dentro de la api characters entonces cambio el parametro por esa nueva api, entonces se realizará otra vez el fetch con esa nueva api
     if (result.info.next) {
