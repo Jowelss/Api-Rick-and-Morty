@@ -4,18 +4,14 @@ const content = document.querySelector('.content-grid');
 
 const fragment = document.createDocumentFragment();
 
-let searchInput = document.getElementById('search-engine');
-
 const searchButton = document.querySelector('.button');
 
 const personajes = [];
 
-const getNameCharacter = () => {};
-
 const domElements = () => {
   content.textContent = '';
 
-  personajes.slice(0, 5).forEach((element) => {
+  personajes.forEach((element) => {
     const cloneTemplate = template.content.cloneNode(true);
 
     cloneTemplate.querySelector('.element-image').src = element.imagen;
@@ -82,9 +78,8 @@ const fetchCharacters = async (url) => {
     if (result.info.next) {
       fetchCharacters(result.info.next);
     } else {
-      //Si ya no hay mas apis se ejecuta estas funciones
+      //Si ya no hay mas apis se ejecuta esta función
       domElements();
-      getNameCharacter();
     }
   } catch (error) {
     console.log(error);
