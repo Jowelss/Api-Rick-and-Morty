@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: #1d1d20;
 }
 
 .header {
@@ -38,6 +38,10 @@ body {
   align-items: center;
   list-style: none;
   gap: 100px;
+}
+.header .nav .nav-list__container .nav-list .nav-list__item {
+  text-decoration: none;
+  font-size: 1.2em;
 }
 
 .main {
@@ -90,6 +94,13 @@ body {
 .main .data-container .data .data-info__container .data-nombre {
   font-size: 1.8rem;
   font-weight: bold;
+}
+.main .data-container .data .data-info__container .data-estado .item {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #27db27;
 }
 
 /*# sourceMappingURL=style.css.map */

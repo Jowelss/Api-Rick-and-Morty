@@ -13,7 +13,7 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: #1d1d20;
 }
 
 .header {
@@ -41,6 +41,13 @@ body {
       align-items: center;
       list-style: none;
       gap: 100px;
+
+      .nav-list {
+        .nav-list__item {
+          text-decoration: none;
+          font-size: 1.2em;
+        }
+      }
     }
   }
 }
