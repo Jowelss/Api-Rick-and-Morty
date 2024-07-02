@@ -51,13 +51,6 @@ body {
   text-align: center;
   font-size: 4rem;
 }
-.main .search-container {
-  max-width: 1200px;
-  margin: 0 auto 20px;
-}
-.main .search-container .search-input {
-  color: #000;
-}
 .main .content-grid {
   display: grid;
   justify-content: center;
