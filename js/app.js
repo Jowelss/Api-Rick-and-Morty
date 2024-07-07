@@ -28,13 +28,16 @@ const domElements = () => {
       '.data-estado'
     ).textContent = `State : ${info.estado}`;
 
-    cloneTemplate.querySelector(
-      '.data-tipo'
-    ).textContent = `Type :  ${info.tipo}`;
+    let typeContent = cloneTemplate.querySelector('.data-tipo');
+
+    if (info.tipo === '') {
+      typeContent.textContent = `Type : Undifined`;
+    } else {
+      typeContent.textContent = `Type : ${info.tipo}`;
+    }
 
     fragment.appendChild(cloneTemplate);
   });
-
   dataContainer.appendChild(fragment);
 };
 
