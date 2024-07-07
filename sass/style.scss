@@ -30,6 +30,12 @@ body {
       display: flex;
       align-items: center;
       width: 200px;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2, 1.2);
+      }
 
       .nav-logo {
         width: 100%;

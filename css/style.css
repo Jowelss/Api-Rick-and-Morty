@@ -29,6 +29,11 @@ body {
   display: flex;
   align-items: center;
   width: 200px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.header .nav .nav-container__logo:hover {
+  transform: scale(1.2, 1.2);
 }
 .header .nav .nav-container__logo .nav-logo {
   width: 100%;
@@ -94,13 +99,6 @@ body {
 .main .data-container .data .data-info__container .data-nombre {
   font-size: 1.8rem;
   font-weight: bold;
-}
-.main .data-container .data .data-info__container .data-estado .item {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  background-color: #27db27;
 }
 
 /*# sourceMappingURL=style.css.map */
