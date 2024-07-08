@@ -6,6 +6,20 @@ const fragment = document.createDocumentFragment();
 
 const characters = [];
 
+const stateIcon = document.querySelectorAll('.state-icon');
+
+const addColorStateCharacter = (itemState) => {
+  // Una funcion solo debe realizar una funcion no varias
+};
+
+const getStateCharacter = () => {
+  const stateCharacter = document.querySelectorAll('.data-estado');
+
+  stateCharacter.forEach((item) => {
+    return addColorStateCharacter(item);
+  });
+};
+
 const domElements = () => {
   dataContainer.textContent = '';
 
@@ -20,13 +34,9 @@ const domElements = () => {
       '.data-genero'
     ).textContent = `Gender :  ${info.genero}`;
 
-    cloneTemplate.querySelector(
-      '.data-especie'
-    ).textContent = `Specie :  ${info.especie}`;
+    cloneTemplate.querySelector('.data-especie').textContent = info.especie;
 
-    cloneTemplate.querySelector(
-      '.data-estado'
-    ).textContent = `State : ${info.estado}`;
+    cloneTemplate.querySelector('.data-estado').textContent = info.estado;
 
     let typeContent = cloneTemplate.querySelector('.data-tipo');
 
@@ -39,6 +49,8 @@ const domElements = () => {
     fragment.appendChild(cloneTemplate);
   });
   dataContainer.appendChild(fragment);
+
+  getStateCharacter();
 };
 
 const fetchApi = async () => {
