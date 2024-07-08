@@ -13,6 +13,7 @@
 
 body {
   background-color: #1d1d20;
+  padding-right: 10px;
 }
 
 .header {
@@ -48,6 +49,9 @@ body {
   text-decoration: none;
   font-size: 1.2em;
 }
+.header .nav .nav-list__container .nav-list .nav-list__item:hover {
+  text-decoration: underline;
+}
 
 .main {
   max-width: 1400px;
@@ -59,6 +63,7 @@ body {
 .main .title-container .title {
   text-align: center;
   font-size: 4rem;
+  letter-spacing: 4px;
 }
 .main .data-container {
   display: grid;
@@ -73,7 +78,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  border: 1px solid var(--white);
+  background-color: #242427;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -91,7 +96,6 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 10px 0;
   font-weight: bold;
   list-style: none;
@@ -99,6 +103,24 @@ body {
 .main .data-container .data .data-info__container .data-nombre {
   font-size: 1.8rem;
   font-weight: bold;
+}
+.main .data-container .data .data-info__flex {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main .data-container .data .data-info__flex .data-info__flex-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main .data-container .data .data-info__flex .data-info__flex-icon .state-icon {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: green;
 }
 
 /*# sourceMappingURL=style.css.map */
