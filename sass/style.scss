@@ -109,34 +109,14 @@ body {
         height: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         padding: 10px 0;
         font-weight: bold;
         list-style: none;
 
-        .data-nombre {
+        .data-info__nombre {
           font-size: 1.8rem;
           font-weight: bold;
-        }
-      }
-
-      .data-info__flex {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .data-info__flex-icon {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-
-          .state-icon {
-            display: block;
-            width: 10px;
-            height: 10px;
-            border-radius: 100%;
-            background-color: green;
-          }
         }
       }
     }

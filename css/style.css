@@ -96,31 +96,17 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 10px 0;
   font-weight: bold;
   list-style: none;
 }
-.main .data-container .data .data-info__container .data-nombre {
+.main .data-container .data .data-info__container .data-info__nombre {
   font-size: 1.8rem;
   font-weight: bold;
 }
-.main .data-container .data .data-info__flex {
-  height: 100%;
+.main .data-container .data .data-info__container .data-info__flex {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.main .data-container .data .data-info__flex .data-info__flex-icon {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.main .data-container .data .data-info__flex .data-info__flex-icon .state-icon {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  background-color: green;
 }
 
 /*# sourceMappingURL=style.css.map */
